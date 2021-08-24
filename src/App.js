@@ -10,10 +10,11 @@ import TokenContextProvider from './contexts/TokenContext';
 import AuthContextProvider from './contexts/AuthContext';
 import Login from './views/Login';
 import Callback from './views/Callback';
+import Playlist from './components/Playlist';
 
 
 function App() {
-  return (
+  return (<div className="wrapper">
     <AuthContextProvider>
     <TokenContextProvider>
       <Router>
@@ -24,11 +25,13 @@ function App() {
         <AlbumDetails path="/albums/details"/>
         <Categories path="/categories"/>
         <Playlists path="/playlists"/>
+        <Playlist path="/playlist"/>
         <Player path="/player"/>
 
       </Router>
     </TokenContextProvider>
     </AuthContextProvider>
+    </div>
   );
 }
 
