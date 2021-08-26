@@ -2,7 +2,7 @@ import './App.css';
 import { Router } from '@reach/router'
 import Featured from './components/Featured'
 import Albums from './components/Albums'
-import AlbumDetails from './components/AlbumDetails'
+import Album from './components/Album'
 import Categories from './components/Categories'
 import Playlists from './components/Playlists'
 import Player from './components/Player'
@@ -22,7 +22,7 @@ function App() {
         <Featured path="featured"/>
         <Callback path="callback"/>
         <Albums path="albums"/>
-        <AlbumDetails path="/albums/details"/>
+        <Album path="/album"/>
         <Categories path="/categories"/>
         <Playlists path="/playlists"/>
         <Playlist path="/playlist"/>

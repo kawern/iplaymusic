@@ -5,7 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
 
-    const Featured = () => {
+    const Featured = ({id}) => {
 
     const style = css `
     li {

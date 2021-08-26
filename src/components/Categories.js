@@ -45,30 +45,29 @@ useEffect(() => {
 categories && console.log(categories);
 
 const colors = [
-    {backgroundColor: '#D70060'},
-    {backgroundColor: '#E54028'},
-    {backgroundColor: '#F18D05'},
-    {backgroundColor: '#F2BC06'},
-    {backgroundColor: '#5EB11C'},
-    {backgroundColor: '#3A7634'},
-    {backgroundColor: '#0ABEBE'},
-    {backgroundColor: '#00A1CB'},
-    {backgroundColor: '#115793'},
+    '#D70060',
+    '#E54028',
+    '#F18D05',
+    '#F2BC06',
+    '#5EB11C',
+    '#3A7634',
+    '#0ABEBE',
+    '#00A1CB',
+    '#115793',
 ];
+
+
 
     return (
     <div css={style}>
     <h1>Categories</h1>
 
-    { categories?.map(category => (
-        <ul>
-            
-            <li>
-                <p>{category.name}</p>
-                <p><BsThreeDots/></p>
-            </li>
-        </ul>
-    ))}
+        {categories?.map((category, i) =>
+        
+        <li style={{backgroundColor:colors[i]}} key={i}>
+        <p>{category.name}</p>
+        <p><BsThreeDots/></p>
+    </li>)}
     </div>
     );
 }
