@@ -21,11 +21,11 @@ function App() {
         <Login path="/"/>
         <Featured path="featured"/>
         <Callback path="callback"/>
-        <Albums path="albums"/>
-        <Album path="/album"/>
+        <Albums path="/albums"/>
+        <Album path="/album/:id"/>
         <Categories path="/categories"/>
         <Playlists path="/playlists"/>
-        <Playlist path="/playlist"/>
+        <Playlist path="/playlist/:id"/>
         <Player path="/player"/>
 
       </Router>
