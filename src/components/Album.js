@@ -51,7 +51,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
   text-align: center;
   font-weight: lighter;
 }
-.track td:first-child {
+.track td:first-of-type {
   width: 5%;
   text-align: center;
 }
@@ -61,15 +61,21 @@ import { AiFillPlayCircle } from 'react-icons/ai'
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+ img {
+max-width: 325px;
+}
     `
 
-    tracks && console.log(tracks)
+    tracks && console.log(album)
     return (
-    <div css={style}>
+    <div css={style} >
+        <div className="albumTop">
+<img src={album && album.images[0].url} alt="album cover"/>
     <h1>{album && album.name}</h1>
-    <ul>
+    </div>
 
     { tracks?.map(track => (
+        // eslint-disable-next-line
     <table className="track">
         <tbody>
                 <tr>
@@ -83,7 +89,6 @@ import { AiFillPlayCircle } from 'react-icons/ai'
                 </tbody>
 </table>
     ))}
-    </ul>
     </div>
     );
 }
