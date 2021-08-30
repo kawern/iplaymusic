@@ -13,16 +13,17 @@ import Callback from './views/Callback';
 import Playlist from './components/Playlist';
 import Category from './components/Category';
 import Drawer from './components/Drawer';
-import Test from './components/test';
+
 
 
 function App() {
   return (<div className="wrapper">
+    
     <AuthContextProvider>
     <TokenContextProvider>
       <Drawer/>
       <Router>
-        <Login path="/"/>
+      <Login path="/"/>
         <Featured path="featured"/>
         <Callback path="callback"/>
         <Albums path="/albums"/>
@@ -31,8 +32,7 @@ function App() {
         <Category path="/category/:id"/>
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
-        <Player path="/player"/>
-        <Test path="/test"/>
+        <Player path="/player/:id"/>
 
       </Router>
     </TokenContextProvider>

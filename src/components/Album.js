@@ -79,7 +79,7 @@ max-width: 325px;
     <table className="track">
         <tbody>
                 <tr>
-                    <td><AiFillPlayCircle size={36}/></td>
+                    <td><Link to={`/player/${track.id}`}><AiFillPlayCircle size={36}/></Link></td>
                     <td>
                         <p>{track.name}</p>
                         <p>{track.artists[0].name}</p>
