@@ -5,16 +5,28 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
 
-    const Featured = () => {
+    const PlaylistSlider = () => {
 
     const style = css `
+    .PlaylistSlider__container {
+        max-width: 325px;
+    }
+.PlaylistSlider_Slides {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.PlaylistSlider_Slides a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
     li {
-        margin-bottom: 2em;
-        
         & img {
-        width: 325px;
+        width: 155px;
         border-radius: 8px;
-        z-index: 3;
         box-shadow: -5px -5px 10px rgb(255 255 255 / 50%), 5px 5px 10px rgb(170 170 204 / 25%), 10px 10px 20px rgb(170 170 204 / 50%);
     }
 }
@@ -38,8 +50,9 @@ import { Link } from '@reach/router'
 playlists && console.log(playlists);
     return (
     <div css={style}>
-    <h1>Featured</h1>
-    <ul>
+<div className="PlaylistSlider__container">
+<div className="PlaylistSlider_Slides">
+<ul>
     { playlists?.map(playlist => (
         <Link to={`/playlist/${playlist.id}`}>
             <li>
@@ -48,8 +61,10 @@ playlists && console.log(playlists);
                 </Link>
         
     ))}</ul>
+</div>
+</div>
     </div>
     );
 }
  
-export default Featured;
+export default PlaylistSlider;

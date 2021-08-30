@@ -11,12 +11,16 @@ import AuthContextProvider from './contexts/AuthContext';
 import Login from './views/Login';
 import Callback from './views/Callback';
 import Playlist from './components/Playlist';
+import Category from './components/Category';
+import Drawer from './components/Drawer';
+import Test from './components/test';
 
 
 function App() {
   return (<div className="wrapper">
     <AuthContextProvider>
     <TokenContextProvider>
+      <Drawer/>
       <Router>
         <Login path="/"/>
         <Featured path="featured"/>
@@ -24,9 +28,11 @@ function App() {
         <Albums path="/albums"/>
         <Album path="/album/:id"/>
         <Categories path="/categories"/>
+        <Category path="/category/:id"/>
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
         <Player path="/player"/>
+        <Test path="/test"/>
 
       </Router>
     </TokenContextProvider>

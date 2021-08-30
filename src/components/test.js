@@ -6,7 +6,7 @@ import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
 import { BsThreeDots } from 'react-icons/bs'
 
-    const Categories = () => {
+    const Test = () => {
 
     const style = css `
     li {
@@ -91,4 +91,4 @@ const colors = [
     );
 }
  
-export default Categories;
+export default Test;

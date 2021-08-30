@@ -71,7 +71,7 @@ max-width: 325px;
     <div css={style} >
         <div className="albumTop">
 <img src={album && album.images[0].url} alt="album cover"/>
-    <h1>{album && album.name}</h1>
+    <h2>{album && album.artists[0].name} - {album && album.release_date.substring(0, 4)} - {album && album.total_tracks} songs</h2>
     </div>
 
     { tracks?.map(track => (

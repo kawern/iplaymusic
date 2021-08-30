@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
-import { AiFillPlayCircle } from 'react-icons/ai'
 
     const Playlist = () => {
 
@@ -47,7 +46,10 @@ import { AiFillPlayCircle } from 'react-icons/ai'
     `
     Playlist && console.log(Playlist)
     return (
-<>{Playlist && Playlist.name}</>
+<>{Playlist && Playlist.name}
+
+
+</>
     );
 }
  
