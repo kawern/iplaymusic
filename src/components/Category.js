@@ -29,6 +29,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
     const style = css `
     .PlaylistSlider__container {
         max-width: 325px;
+        display: flex;
     }
 .PlaylistSlider_Slides {
   overflow: auto;

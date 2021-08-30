@@ -9,7 +9,7 @@ const Drawer = () => {
     const style = css`
     ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         background-color: white;
         height: 4em;
