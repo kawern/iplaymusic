@@ -25,21 +25,6 @@ import { BsThreeDots } from 'react-icons/bs'
             padding: 0 24px;
         }
 }
-.PlaylistSlider__container {
-        max-width: 325px;
-    }
-.PlaylistSlider_Slides {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-.PlaylistSlider_Slides a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
 
     `
         
@@ -77,9 +62,9 @@ const colors = [
     <div css={style}>
     <h1>Categories</h1>
 <ul>
-        {categories?.map((category, i) =>
+        {categories?.map((category, color) =>
         <Link to={`/category/${category.id}`}>
-        <li style={{backgroundColor:colors[i%9]}} key={i}>
+        <li style={{backgroundColor:colors[color%9]}} key={color}>
         <p>{category.name}</p>
         <p><BsThreeDots size={25} style={{paddingTop:"0.8em"}}/></p>
     </li>

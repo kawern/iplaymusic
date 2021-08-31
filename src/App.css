@@ -15,4 +15,5 @@ li {
   display: flex;
   justify-content: center;
   margin-bottom: 3.5em;
+  margin: 0 30px;
 }
