@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
-import { AiFillStepBackward, AiFillBackward, AiFillPlayCircle, AiFillForward, BsSkipEndFill  } from 'react-icons/all'
+import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
 
     const Player = () => {
 
@@ -40,33 +40,6 @@ import { AiFillStepBackward, AiFillBackward, AiFillPlayCircle, AiFillForward, Bs
                 font-size: 3em;
             }
         }
-        @mixin create-vinyl($color) {
-  /**Size**/
-  width: 120px;
-  height: 120px;
-  
-  /**Animation**/
-  animation:play 15s 0s infinite;
-  transform:rotate(0deg); 
-  animation-timing-function: linear;
-  
-}
-
-@keyframes play {
-  0% {
-
-    transform:rotate(0deg);
-  }
-  100% {
-
-    transform:rotate(360deg);
-  }
-}
-
-.vinyl-1{
-  @include create-vinyl($vinyl-color-1);
-}
-
     }
     `
 
@@ -86,11 +59,11 @@ import { AiFillStepBackward, AiFillBackward, AiFillPlayCircle, AiFillForward, Bs
   </linearGradient>
 </svg>
             <ul>
-                <li><AiFillStepBackward style={{ fill: "url(#gradient)" }}/></li>
-                <li><AiFillBackward/></li>
-                <li><AiFillPlayCircle style={{ fill: "url(#gradient)" }}/></li>
-                <li><AiFillForward/></li>
-                <li><BsSkipEndFill style={{ fill: "url(#gradient)" }}/></li>
+                <li><IoPlaySkipBackSharp style={{ fill: "url(#gradient)" }}/></li>
+                <li><IoPlayBackSharp/></li>
+                <li><IoPlayCircleSharp style={{ fill: "url(#gradient)" }}/></li>
+                <li><IoPlayForwardSharp/></li>
+                <li><IoPlaySkipForwardSharp style={{ fill: "url(#gradient)" }}/></li>
                 <li></li>
             </ul>
             </div>

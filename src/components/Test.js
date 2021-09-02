@@ -1,63 +1,99 @@
-import Collapsible from 'react-collapsible';
-import './test.scss'
-import axios from "axios";
-import { useEffect, useState, useContext } from "react";
-import { TokenContext } from '../contexts/TokenContext'
-import { Link } from '@reach/router'
-import { BsThreeDots } from 'react-icons/bs'
+import * as React from "react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  useAccordionItemContext,
+} from "@reach/accordion";
+import { animated, useSpring } from "@react-spring/web";
+import { action } from "@storybook/addon-actions";
+import "@reach/accordion/styles.css";
 
+let name = "Animated";
 
+function useDivHeight() {
+  const ref = React.useRef(null);
+  const [height, setHeight] = React.useState(0);
 
-const Test = () => {
-
-  const { token } = useContext(TokenContext)    
-    const [categories, setCategories] = useState();
-    const [playlists, setPlaylists] = useState();
-
-useEffect(() => {
-    if(token) {
-    axios.get('https://api.spotify.com/v1/browse/categories', {
-        headers: {
-            "Authorization": token
+  React.useEffect(() => {
+    const resizeObserver = new ResizeObserver(([entry]) => {
+      requestAnimationFrame(() => {
+        if (!entry) {
+          return;
         }
-    })
-    .then(response => setCategories(response.data.categories.items))
+        setHeight(entry.target.getBoundingClientRect().height);
+      });
+    });
+
+    if (ref.current) {
+      resizeObserver.observe(ref.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  return { ref, height };
 }
-}, [token])
 
-const colors = [
-  '#D70060',
-  '#E54028',
-  '#F18D05',
-  '#F2BC06',
-  '#5EB11C',
-  '#3A7634',
-  '#0ABEBE',
-  '#00A1CB',
-  '#115793',
-];
-
-categories && console.log(categories)
-playlists && console.log(playlists)
-  return ( 
-    <div>
-      <ul>
-        {categories?.map((category, color) =>
-        <Collapsible trigger={category.name}
-        contentContainerTagName="subcategory"
-        containerElementProps={category.id}
-        triggerStyle={{backgroundColor:colors[color%9]}}>
-      
-            <div className="subcategory">
-Root er noob
-            
-          </div></Collapsible>
-    )}
-    
-    </ul>
-
-  </div>
-   );
+function Example() {
+  return (
+    <Accordion defaultIndex={2} onChange={action(`Selecting panel`)}>
+      <AccordionItem>
+        <AccordionButton>I am animated!</AccordionButton>
+        <AnimatedPanel>
+          Ante rhoncus facilisis iaculis nostra faucibus vehicula ac consectetur
+          pretium, lacus nunc consequat id viverra facilisi ligula eleifend,
+          congue gravida malesuada proin scelerisque luctus est convallis.
+        </AnimatedPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>Me too!</AccordionButton>
+        <AnimatedPanel>
+          Ante rhoncus facilisis iaculis nostra faucibus vehicula ac consectetur
+          pretium, lacus nunc consequat id viverra facilisi ligula eleifend,
+          congue gravida malesuada proin scelerisque luctus est convallis.
+        </AnimatedPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>Look ma', auto height animations!</AccordionButton>
+        <AnimatedPanel>
+          Ante rhoncus facilisis iaculis nostra faucibus vehicula ac consectetur
+          pretium, lacus nunc consequat id viverra facilisi ligula eleifend,
+          congue gravida malesuada proin scelerisque luctus est convallis.
+        </AnimatedPanel>
+      </AccordionItem>
+    </Accordion>
+  );
 }
- 
-export default Test;
+
+const AnimatedAccordionPanel = animated(AccordionPanel);
+
+const AnimatedPanel = React.forwardRef(({ children }, forwardedRef) => {
+  const { isExpanded } = useAccordionItemContext();
+  const { ref, height } = useDivHeight();
+  const animation = useSpring({
+    opacity: isExpanded ? 1 : 0,
+    height: isExpanded ? height : 0,
+    overflow: "hidden",
+  });
+
+  return (
+    <AnimatedAccordionPanel
+      style={animation}
+      // We need to set hidden to false for the exit animations to work
+      // but the panel should still be hidden from the accessibility tree
+      // when the panel is closed. We'll use aria-hidden instead.
+      hidden={false}
+      aria-hidden={!isExpanded || undefined}
+      ref={forwardedRef}
+    >
+      <div ref={ref}>{children}</div>
+    </AnimatedAccordionPanel>
+  );
+});
+
+Example.storyName = name;
+export { Example };
