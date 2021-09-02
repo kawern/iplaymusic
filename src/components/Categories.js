@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel } from "@reach/accordion";
-import { BsThreeDots } from 'react-icons/bs'
+import { IoEllipsisHorizontalSharp } from 'react-icons/all'
 import "animate.css"
 import './Categories.scss'
 
@@ -60,7 +60,7 @@ playlists && console.log(playlists)
           onClick={handleClick(category.id)}>
 
             <p>{category.name}</p>
-            <p><BsThreeDots size={25} style={{paddingTop:"0.8em"}}/></p>
+            <p><IoEllipsisHorizontalSharp size={25} style={{paddingTop:"1em"}}/></p>
 
           </AccordionButton>
           

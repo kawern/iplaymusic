@@ -32,7 +32,7 @@ function App() {
         <Category path="/category/:id"/>
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
-        <Player path="/player/:id"/>fied
+        <Player path="/player/:id"/>
 
 
       </Router>
