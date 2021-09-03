@@ -2,6 +2,7 @@ import { IoListCircleSharp, RiPlayList2Fill, MdWifiTethering, IoContrast, IoIosA
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { Link } from '@reach/router'
+import { useState, useEffect } from 'react'
 
 const style = css`
 ul {
@@ -35,6 +36,20 @@ li {
 }`
 
 const Drawer = () => {
+    const [ darkMode, setDarkMode ] = useState(false)
+   
+    useEffect(() => {
+      const body = document.body
+      
+      // If dark mode is enabled - adds classes to update dark-mode styling.
+      // Else, removes and styling is as normal.
+      if( darkMode === true ) {
+        body.classList.add('dark-mode')
+      } else {
+        body.classList.remove('dark-mode')
+      }
+    }, [darkMode])
+
     return ( <nav css={style}>
 
 <svg width="0" height="0">
@@ -54,9 +69,14 @@ const Drawer = () => {
         <li className="big"><MdWifiTethering size={40} style={{ fill: "white"}}/></li>
         </Link>
         <Link to={"/categories"}>
-        <li><IoListCircleSharp style={{ fill: "url(#gradient)"}}/></li>
+        <li>
+            <IoListCircleSharp style={{ fill: "url(#gradient)"}}/>
+            </li>
         </Link>
-        <li><IoContrast style={{ fill: "url(#gradient)" }}/></li>
+        <li><IoContrast
+        id="toggle"
+        onClick={() => darkMode === false ? setDarkMode(true) : setDarkMode(false)}
+        style={{ fill: "url(#gradient)" }}/></li>
     </ul></nav> );
 }
  

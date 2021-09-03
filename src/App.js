@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Router } from '@reach/router'
 import Featured from './components/Featured'
 import Albums from './components/Albums'

@@ -47,3 +47,21 @@ button {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
 }
+
+
+.dark-mode {
+  background-color: #341931;
+  color: white;
+    
+  main {
+    background-color: #1a202c;
+  }
+  
+  #toggle {
+    background-color: white;
+
+    .toggle-inner {
+      background-color: #1a202c;
+    }
+  }
+}
