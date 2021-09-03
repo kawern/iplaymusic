@@ -51,7 +51,10 @@ playlists && console.log(playlists)
     
     <div>
       <h1>Categories</h1>
-       <Accordion style={{marginBottom: "5em"}}>{categories?.map((category, color) =>
+       <Accordion
+       style={{marginBottom: "5em"}}
+       collapsible>
+        {categories?.map((category, color) =>
       <AccordionItem>
       
           <AccordionButton

@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
+import './Tracks.scss'
 
     const Playlist = () => {
 
@@ -35,43 +36,17 @@ import { AiFillPlayCircle } from 'react-icons/ai'
     .then(response => setTracks(response.data.items))
 }
 }, [token])
-    
-    const style = css `
-    .track {
-  border-collapse: collapse;
-  width: 100%;
-  width: 325px;
-}
 
-.track td {
-  padding: 8px;
-}
-.track td:last-child {
-  width: 5%;
-  text-align: center;
-  font-weight: lighter;
-}
-.track td:first-of-type {
-  width: 5%;
-  text-align: center;
-}
-.track td p {
-    width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.track td p:nth-child(2) {
-    font-size: 12px;
-}
- img {
-max-width: 325px;
-}
-    `
 
     playlist && console.log(playlist)
+
+    function correctDuration(ms) {
+        let minutes = Math.floor(ms / 60000);
+        let seconds = ((ms % 60000) / 1000).toFixed(0);
+        return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
+    }
     return (
-    <div css={style} >
+    <div>
         <div className="albumTop">
 <img src={playlist && playlist.images[0].url} alt="album cover"/>
     </div>
@@ -81,12 +56,12 @@ max-width: 325px;
     <table className="track">
         <tbody>
                 <tr>
-                    <td><AiFillPlayCircle size={36}/></td>
+                    <td><Link to={`/player/${track.id}`}><AiFillPlayCircle size={36}/></Link></td>
                     <td>
                         <p>{track.track.name}</p>
                         <p>{track.track.artists[0].name}</p>
                         </td>
-                    <td>2:35</td>
+                    <td>{correctDuration(track.track.duration_ms)}</td>
                 </tr>
                 </tbody>
 </table>

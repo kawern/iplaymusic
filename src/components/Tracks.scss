@@ -1,0 +1,28 @@
+.track {
+    border-collapse: collapse;
+    width: 100%;
+    width: 325px;
+  & td {
+    padding: 8px;
+  }
+  & td:last-child {
+    width: 5%;
+    text-align: center;
+    font-weight: lighter;
+  }
+  & td:first-of-type {
+    width: 5%;
+    text-align: center;
+  }
+  & td p {
+      width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+  & td p:nth-child(2) {
+      font-size: 12px;
+  }
+} img {
+  max-width: 325px;
+  }

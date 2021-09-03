@@ -13,6 +13,7 @@ import Callback from './views/Callback';
 import Playlist from './components/Playlist';
 import Category from './components/Category';
 import Drawer from './components/Drawer';
+import Test from './components/Test';
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
         <Player path="/player/:id"/>
+        <Test path="/test"/>
 
 
       </Router>

@@ -1,4 +1,4 @@
-import { BiEqualizer, IoIosMicrophone, MdWifiTethering, IoContrast, IoIosAlbums  } from 'react-icons/all'
+import { IoListCircleSharp, RiPlayList2Fill, MdWifiTethering, IoContrast, IoIosAlbums  } from 'react-icons/all'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { Link } from '@reach/router'
@@ -45,16 +45,17 @@ const Drawer = () => {
 </svg>
     <ul>
     <Link to={"/albums"}>
-            <li><BiEqualizer style={{ fill: "url(#gradient)" }} /></li>
+            <li><IoIosAlbums style={{ fill: "url(#gradient)" }} /></li>
             </Link>
-    <Link to={"/categories"}>
-        <li><IoIosMicrophone style={{ fill: "url(#gradient)" }}/></li>
+    <Link to={"/playlists"}>
+        <li><RiPlayList2Fill style={{ fill: "url(#gradient)" }}/></li>
         </Link>
     <Link to={"/featured"}>
         <li className="big"><MdWifiTethering size={40} style={{ fill: "white"}}/></li>
         </Link>
-
-        <li><IoIosAlbums style={{ fill: "url(#gradient)"}}/></li>
+        <Link to={"/categories"}>
+        <li><IoListCircleSharp style={{ fill: "url(#gradient)"}}/></li>
+        </Link>
         <li><IoContrast style={{ fill: "url(#gradient)" }}/></li>
     </ul></nav> );
 }

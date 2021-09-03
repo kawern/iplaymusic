@@ -29,11 +29,16 @@ h1 {
   margin-bottom: 0.5em;
   font-size: 48px;
 }
+h2 {
+  font-size: 36px;
+  color: white;
+  margin: 0 30px;
+}
 li {
   list-style: none;
 }
 .wrapper {
-  display: flex;
+display: flex;
   justify-content: center;
   margin-bottom: 3.5em;
   margin: 0 30px;
