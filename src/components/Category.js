@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
+import Drawer from './Drawer';
 
     const Category = () => {
 
@@ -64,6 +65,7 @@ max-width: 155px;
     ))}</ul>
 </div>
 </div>
+<Drawer/>
         </div>
     );
 }

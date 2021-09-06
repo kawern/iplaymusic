@@ -12,7 +12,6 @@ import Login from './views/Login';
 import Callback from './views/Callback';
 import Playlist from './components/Playlist';
 import Category from './components/Category';
-import Drawer from './components/Drawer';
 import Test from './components/Test';
 
 
@@ -22,7 +21,6 @@ function App() {
     
     <AuthContextProvider>
     <TokenContextProvider>
-      <Drawer/>
       <Router>
       <Login path="/"/>
         <Featured path="featured"/>
@@ -34,7 +32,7 @@ function App() {
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
         <Player path="/player/:id"/>
-        <Test path="/test"/>
+        <Test path="/test/:id"/>
 
 
       </Router>

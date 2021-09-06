@@ -5,7 +5,7 @@ import { Link } from '@reach/router'
 import { useState, useEffect } from 'react'
 
 const style = css`
-ul {
+.drawer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -19,9 +19,10 @@ ul {
 -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
 -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.115);
 }
-li {
+li{
     font-size: 2em;
     line-height: 0em;
+    margin-bottom: 0!important;
 }
 .big {
     font-size: 2em;
@@ -33,6 +34,7 @@ li {
     background: -webkit-linear-gradient(#EE0979, orange);
     padding: 4px;
     border-radius: 1em;
+    color: white;
 }`
 
 const Drawer = () => {
@@ -58,7 +60,7 @@ const Drawer = () => {
     <stop stopColor="orange" offset="100%" />
   </linearGradient>
 </svg>
-    <ul>
+    <div className="drawer">
     <Link to={"/albums"}>
             <li><IoIosAlbums style={{ fill: "url(#gradient)" }} /></li>
             </Link>
@@ -66,18 +68,18 @@ const Drawer = () => {
         <li><RiPlayList2Fill style={{ fill: "url(#gradient)" }}/></li>
         </Link>
     <Link to={"/featured"}>
-        <li className="big"><MdWifiTethering size={40} style={{ fill: "white"}}/></li>
+        <li className="big"><MdWifiTethering size={40}/></li>
         </Link>
         <Link to={"/categories"}>
         <li>
-            <IoListCircleSharp style={{ fill: "url(#gradient)"}}/>
+            <IoListCircleSharp size={37} style={{ fill: "url(#gradient)"}}/>
             </li>
         </Link>
-        <li><IoContrast
+        <li><IoContrast size={34}
         id="toggle"
         onClick={() => darkMode === false ? setDarkMode(true) : setDarkMode(false)}
         style={{ fill: "url(#gradient)" }}/></li>
-    </ul></nav> );
+    </div></nav> );
 }
  
 export default Drawer;

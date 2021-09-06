@@ -4,6 +4,9 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
+import Drawer from './Drawer'
+import LazyLoad from 'react-lazyload';
+
 
     const Featured = () => {
 
@@ -15,7 +18,8 @@ import { Link } from '@reach/router'
         width: 325px;
         border-radius: 8px;
         z-index: 3;
-        box-shadow: -5px -5px 10px rgb(255 255 255 / 50%), 5px 5px 10px rgb(170 170 204 / 25%), 10px 10px 20px rgb(170 170 204 / 50%);
+        -webkit-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15); 
+box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
     }
 }
 
@@ -43,11 +47,14 @@ playlists && console.log(playlists);
     { playlists?.map(playlist => (
         <Link to={`/playlist/${playlist.id}`}>
             <li>
+            <LazyLoad throttle={200} height={300}>
                 <img src={playlist.images[0].url} alt={playlist.images} />
+                </LazyLoad>
                 </li>
                 </Link>
         
     ))}</ul>
+    <Drawer/>
     </div>
     );
 }

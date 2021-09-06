@@ -55,13 +55,21 @@ button {
     
   main {
     background-color: #1a202c;
-  }
-  
-  #toggle {
-    background-color: white;
-
-    .toggle-inner {
-      background-color: #1a202c;
     }
+    li {
+        & img {
+        width: 325px;
+        border-radius: 8px;
+        z-index: 3;
+        -webkit-box-shadow: 10px 10px 11px 0px rgba(255,255,255,0.15)!important;
+box-shadow: 10px 10px 11px 0px rgba(255,255,255,0.15)!important;
+    }
+  }
+
+.drawer {
+  background-color: #111625!important;
+}
+  .big {
+    color: #111625!important;
   }
 }

@@ -7,6 +7,7 @@ import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import './Tracks.scss'
 import wave from "./images/playlist-wave.png";
+import Drawer from './Drawer';
 
     const Playlists = () => {
         const { token } = useContext(TokenContext)    
@@ -43,7 +44,6 @@ width: 100vw;
     .PlaylistSlider__container {
 display: flex;
 margin: 0 30px;
-overflow: hidden; /* Hide scrollbars */
     }
 .PlaylistSlider_slides {
   overflow: auto;
@@ -63,8 +63,9 @@ ul {
 & li {
     margin-right: 10px;
 }
-img {
+& img {
 max-width: 155px;
+border-radius: 8px;
 }
 }
     `
@@ -86,10 +87,6 @@ max-width: 155px;
 <ul>
     { albums?.map(album => (
             <li onClick={handleClick(album.track.album.id)}>
-<linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-    <stop stopColor="#EE0979" offset="0%" />
-    <stop stopColor="orange" offset="100%" />
-  </linearGradient>
                 <img
                 src={album.track.album.images[0].url} alt={album.track.album.name} />
                 <p>{album.track.album.name.substring(0, 18)}</p>
@@ -113,6 +110,7 @@ max-width: 155px;
                 ))}
                 </tbody>
 </table>
+<Drawer/>
         </div>
     );
 }

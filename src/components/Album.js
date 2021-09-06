@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
+import Drawer from './Drawer';
 
     const Album = () => {
 
@@ -89,6 +90,7 @@ max-width: 325px;
                 </tbody>
 </table>
     ))}
+        <Drawer/>
     </div>
     );
 }

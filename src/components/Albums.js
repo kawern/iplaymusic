@@ -5,6 +5,8 @@ import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
+import Drawer from './Drawer';
+import LazyLoad from 'react-lazyload';
 
     const Albums = () => {
 
@@ -28,9 +30,9 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 
     const style = css `
     .PlaylistSlider__container {
-        max-width: 325px;
+max-width: 325px;
     }
-.PlaylistSlider_Slides {
+.PlaylistSlider_slides {
   overflow: auto;
   white-space: nowrap;
 & a {
@@ -40,15 +42,19 @@ import { AiFillPlayCircle } from 'react-icons/ai'
   padding: 14px;
   text-decoration: none;
   color: black;
+padding: 0;
 }
-}
- img {
-max-width: 155px;
-}
+&
 ul {
     display: flex;
 }
-li {
+& li {
+    margin-right: 10px;
+}
+& img {
+max-width: 155px;
+border-radius: 8px;
+}
 }
     `
 
@@ -56,12 +62,14 @@ li {
 <div css={style} >
         <h1>Category</h1>
         <div className="PlaylistSlider__container">
-<div className="PlaylistSlider_Slides">
+<div className="PlaylistSlider_slides">
 <ul>
     { tracks?.map(track => (
         <Link to={`/albums/`}>
             <li>
+            <LazyLoad throttle={100} height={155}>
                 <img src={track.track.album.images[0].url} alt="test" />
+                </LazyLoad>
                 <p>{track.track.album.name.substring(0, 15)}</p>
                 <p></p>
                 </li>
@@ -69,6 +77,7 @@ li {
     ))}</ul>
 </div>
 </div>
+<Drawer/>
         </div>
     );
 }

@@ -6,6 +6,7 @@ import { Accordion, AccordionItem, AccordionButton, AccordionPanel } from "@reac
 import { IoEllipsisHorizontalSharp } from 'react-icons/all'
 import "animate.css"
 import './Categories.scss'
+import Drawer from "./Drawer";
 
 
 const Categories = () => {
@@ -77,6 +78,7 @@ playlists && console.log(playlists)
       </AccordionItem>
       )}
     </Accordion>
+    <Drawer/>
   </div>
    );
         }

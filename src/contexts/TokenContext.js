@@ -27,8 +27,6 @@ body: "grant_type=client_credentials"
 .then(response => response.json())
 .then(result => setToken(`${result.token_type} ${result.access_token}`))
     }, []);
-
-    token && console.log(token)
     
     return ( 
         <TokenContext.Provider value={{ token }}>

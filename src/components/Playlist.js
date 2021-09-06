@@ -6,6 +6,7 @@ import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import './Tracks.scss'
+import Drawer from './Drawer'
 
     const Playlist = () => {
 
@@ -56,7 +57,7 @@ import './Tracks.scss'
     <table className="track">
         <tbody>
                 <tr>
-                    <td><Link to={`/player/${track.id}`}><AiFillPlayCircle size={36}/></Link></td>
+                    <td><Link to={`/test/${track.track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
                     <td>
                         <p>{track.track.name}</p>
                         <p>{track.track.artists[0].name}</p>
@@ -66,6 +67,7 @@ import './Tracks.scss'
                 </tbody>
 </table>
     ))}
+        <Drawer/>
     </div>
     );
 }
