@@ -17,7 +17,7 @@ const Categories = () => {
 
 useEffect(() => {
     if(token) {
-    axios.get('https://api.spotify.com/v1/browse/categories?country=DK', {
+    axios.get('https://api.spotify.com/v1/browse/categories?country=DK&locale=EN', {
         headers: {
             "Authorization": token
         }
@@ -39,7 +39,7 @@ const colors = [
 ];
 
 const handleClick = value => async() => {
-  axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists`, {
+  await axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists`, {
     headers: {
         "Authorization": token
     }
