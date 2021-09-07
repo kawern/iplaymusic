@@ -3,8 +3,7 @@ import { css } from '@emotion/react'
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
-import { Link, useParams } from '@reach/router'
-import { AiFillPlayCircle } from 'react-icons/ai'
+import { Link } from '@reach/router'
 import Drawer from './Drawer';
 import LazyLoad from 'react-lazyload';
 import Spinner from './Spinner'
@@ -104,7 +103,7 @@ return loading ? <Spinner /> : (
         <Link to={`/albums/`}>
             <li>
             <LazyLoad throttle={100} height={155}>
-                <img src={album.track.album.images[0].url} alt="test" />
+                <img src={album.track.album.images[0].url} alt={album.track.album.name} />
                 </LazyLoad>
                 <p>{album.track.album.name.substring(0, 15)}</p>
                 </li>
@@ -119,7 +118,7 @@ return loading ? <Spinner /> : (
         
         {newReleases?.map(release => loading ? <Spinner /> : (
                 <tr>
-                    <td><LazyLoad throttle={200} height={64}><img src={release.images[2].url}/></LazyLoad></td>
+                    <td><LazyLoad throttle={200} height={64}><img src={release.images[2].url} alt={release.name}/></LazyLoad></td>
                     <td>
                         <p style={{fontWeight:"bold"}}>{release.name}</p>
                         <p>{release.artists[0].name}</p>

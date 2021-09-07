@@ -7,13 +7,14 @@ import { IoEllipsisHorizontalSharp } from 'react-icons/all'
 import "animate.css"
 import './Categories.scss'
 import Drawer from "./Drawer";
-
+import Spinner from './Spinner'
 
 const Categories = () => {
 
   const { token } = useContext(TokenContext)    
     const [categories, setCategories] = useState();
     const [playlists, setPlaylists] = useState();
+    const [loading, setLoading] = useState(true);
 
 useEffect(() => {
     if(token) {
@@ -23,6 +24,7 @@ useEffect(() => {
         }
     })
     .then(response => setCategories(response.data.categories.items))
+    setLoading(false)
 }
 }, [token])
 
@@ -45,10 +47,9 @@ const handleClick = value => async() => {
     }
 })
 .then(response => setPlaylists(response.data.playlists.items))
+setLoading(false)
 }
-
-playlists && console.log(playlists)
-  return ( 
+return loading ? <Spinner /> : ( 
     
     <div>
       <h1>Categories</h1>
@@ -64,11 +65,11 @@ playlists && console.log(playlists)
           onClick={handleClick(category.id)}>
 
             <p>{category.name}</p>
-            <p><IoEllipsisHorizontalSharp size={25} style={{paddingTop:"1em"}}/></p>
+            <p className="category_icon"><IoEllipsisHorizontalSharp size={25} style={{paddingTop:"1em"}}/></p>
 
           </AccordionButton>
           
-         { playlists?.map(playlist => (
+         { playlists?.map(playlist  => (
         <AccordionPanel>
         <Link to={`/playlist/${playlist.id}`}>
                 {playlist.name}

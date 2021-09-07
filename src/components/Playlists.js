@@ -8,11 +8,14 @@ import wave from "./images/playlist-wave.png";
 import Drawer from './Drawer';
 import { Link } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
+import Spinner from './Spinner';
+import LazyLoad from 'react-lazyload';
 
     const Playlists = () => {
         const { token } = useContext(TokenContext)    
         const [playlists, setPlaylists] = useState();
         const [playlist, setPlaylist] = useState();
+        const [loading, setLoading] = useState(true);
 
         useEffect(() => {
             if(token) {
@@ -22,6 +25,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
                 }
             })
         .then(response => setPlaylists(response.data.playlists.items))
+        setLoading(false)
     }
     
     }, [token])
@@ -32,6 +36,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
           }
       })
       .then(response => setPlaylist(response.data))
+      setLoading(false)
       }
 
     const style = css `
@@ -85,7 +90,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
         let seconds = ((ms % 60000) / 1000).toFixed(0);
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
-    return (
+    return loading ? <Spinner/> : (
 
 <div css={style}>
     <div className="playlist_top">
@@ -96,8 +101,10 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
     { playlists?.map(playlist => (
         
             <li onClick={handleClick(playlist.id)}>
+                 <LazyLoad throttle={150} height={155}>
                 <img
                 src={playlist.images[0].url} alt={playlist.name} />
+                </LazyLoad>
                 
                 </li>
     ))}</ul>

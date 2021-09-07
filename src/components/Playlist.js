@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
@@ -7,12 +5,14 @@ import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import './Tracks.scss'
 import Drawer from './Drawer'
+import Spinner from './Spinner';
 
     const Playlist = () => {
 
         const { token } = useContext(TokenContext)    
         const [playlist, setPlaylist] = useState();
         const [tracks, setTracks] = useState();
+        const [loading, setLoading] = useState(true);
 
         const { id } = useParams()
     
@@ -24,6 +24,7 @@ import Drawer from './Drawer'
                 }
             })
         .then(response => setPlaylist(response.data))
+        setLoading(false)
     }
     }, [token])
 
@@ -35,6 +36,7 @@ import Drawer from './Drawer'
             }
         })
     .then(response => setTracks(response.data.items))
+    setLoading(false)
 }
 }, [token])
 
@@ -46,7 +48,7 @@ import Drawer from './Drawer'
         let seconds = ((ms % 60000) / 1000).toFixed(0);
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
-    return (
+    return loading ? <Spinner/> : (
     <div>
         <div className="albumTop">
 <img src={playlist && playlist.images[0].url} alt="album cover"/>

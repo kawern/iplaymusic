@@ -11,9 +11,7 @@ import AuthContextProvider from './contexts/AuthContext';
 import Login from './views/Login';
 import Callback from './views/Callback';
 import Playlist from './components/Playlist';
-import Category from './components/Category';
 import Test from './components/Test';
-
 
 
 function App() {
@@ -28,7 +26,6 @@ function App() {
         <Albums path="/albums"/>
         <Album path="/album/:id"/>
         <Categories path="/categories"/>
-        <Category path="/category/:id"/>
         <Playlists path="/playlists"/>
         <Playlist path="/playlist/:id"/>
         <Player path="/player/:id"/>

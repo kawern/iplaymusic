@@ -3,13 +3,15 @@ import { css } from '@emotion/react'
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
-import { Link, useParams } from '@reach/router'
+import { useParams } from '@reach/router'
 import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
+import Spinner from './Spinner';
 
     const Player = () => {
 
         const { token } = useContext(TokenContext)    
         const [track, setTrack] = useState();
+        const [loading, setLoading] = useState(true);
 
         const { id } = useParams()
     
@@ -21,10 +23,9 @@ import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardS
                 }
             })
         .then(response => setTrack(response.data))
+        setLoading(false)
     }
     }, [token])
-
-    track && console.log(track)
 
     const style = css`
     .player_bottom {
@@ -43,7 +44,7 @@ import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardS
     }
     `
 
-    return (
+    return loading ? <Spinner/> : (
     <div css={style}>
         <div className="player__top">
         <img class="picture vinyl-1" id="picture" src="http://assets.stickpng.com/images/5856b3da4f6ae202fedf2794.png"/>

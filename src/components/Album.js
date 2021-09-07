@@ -24,7 +24,9 @@ import Drawer from './Drawer';
             })
         .then(response => setAlbum(response.data))
     }
-    }, [token])
+    },
+        // eslint-disable-next-line
+    [token])
 
     useEffect(() => {
         if(token) {
@@ -35,7 +37,9 @@ import Drawer from './Drawer';
         })
     .then(response => setTracks(response.data.items))
 }
-}, [token])
+},
+    // eslint-disable-next-line
+[token])
     
     const style = css `
     .track {
@@ -71,12 +75,11 @@ max-width: 325px;
     return (
     <div css={style} >
         <div className="albumTop">
-<img src={album && album.images[0].url} alt="album cover"/>
+<img src={album && album.images[0].url} alt={album && album.name}/>
     <h2>{album && album.artists[0].name} - {album && album.release_date.substring(0, 4)} - {album && album.total_tracks} songs</h2>
     </div>
 
     { tracks?.map(track => (
-        // eslint-disable-next-line
     <table className="track">
         <tbody>
                 <tr>

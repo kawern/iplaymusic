@@ -6,6 +6,7 @@ import { TokenContext } from '../contexts/TokenContext'
 import { Link } from '@reach/router'
 import Drawer from './Drawer'
 import LazyLoad from 'react-lazyload';
+import Spinner from './Spinner';
 
 
     const Featured = () => {
@@ -25,8 +26,9 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 
     `
         
-        const { token } = useContext(TokenContext)    
+    const { token } = useContext(TokenContext)    
     const [playlists, setPlaylists] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if(token) {
@@ -36,18 +38,19 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
             }
         })
     .then(response => setPlaylists(response.data.playlists.items))
+    setLoading(false)
 }
 }, [token])
 
 playlists && console.log(playlists);
-    return (
+    return loading ? <Spinner/> : (
     <div css={style}>
     <h1>Featured</h1>
     <ul>
     { playlists?.map(playlist => (
         <Link to={`/playlist/${playlist.id}`}>
             <li>
-            <LazyLoad throttle={200} height={300}>
+            <LazyLoad throttle={300} height={325}>
                 <img src={playlist.images[0].url} alt={playlist.images} />
                 </LazyLoad>
                 </li>
