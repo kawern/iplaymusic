@@ -7,6 +7,7 @@ import { Link } from '@reach/router'
 import Drawer from './Drawer';
 import LazyLoad from 'react-lazyload';
 import Spinner from './Spinner'
+import "animate.css"
 
     const Albums = () => {
 
@@ -101,7 +102,7 @@ return loading ? <Spinner /> : (
 <ul>
     { albums?.map(album =>  (
         <Link to={`/albums/`}>
-            <li>
+            <li className="animate__animated animate__fadeIn">
             <LazyLoad throttle={100} height={155}>
                 <img src={album.track.album.images[0].url} alt={album.track.album.name} />
                 </LazyLoad>
@@ -117,7 +118,7 @@ return loading ? <Spinner /> : (
         <tbody>
         
         {newReleases?.map(release => loading ? <Spinner /> : (
-                <tr>
+                <tr className="animate__animated animate__fadeIn">
                     <td><LazyLoad throttle={200} height={64}><img src={release.images[2].url} alt={release.name}/></LazyLoad></td>
                     <td>
                         <p style={{fontWeight:"bold"}}>{release.name}</p>

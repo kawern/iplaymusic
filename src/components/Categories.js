@@ -29,7 +29,7 @@ useEffect(() => {
 }, [token])
   
 const handleClick = value => async() => {
-  await axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists`,  {
+  await axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists?country=US`,  {
     headers: {
         "Authorization": token
     }
@@ -52,7 +52,7 @@ const colors = [
 
 return loading ? <Spinner /> : ( 
     
-    <div>
+    <div className="animate__animated animate__fadeIn">
       <h1>Categories</h1>
        <Accordion
        style={{marginBottom: "5em"}}

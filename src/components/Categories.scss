@@ -14,9 +14,9 @@ button[data-reach-accordion-button] {
     margin-bottom: 1em;
     padding: 0 1em;
 }
-[data-reach-accordion-panel] {
-    animation: slideInUp; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1s; /* don't forget to set a duration! */
+[data-reach-accordion-panel][data-state="open"] {
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
     padding: 0 1em;
 }
 [data-reach-accordion-button][data-state="open"] {

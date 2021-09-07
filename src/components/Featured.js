@@ -44,7 +44,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 
 playlists && console.log(playlists);
     return loading ? <Spinner/> : (
-    <div css={style}>
+    <div css={style} className="animate__animated animate__fadeIn">
     <h1>Featured</h1>
     <ul>
     { playlists?.map(playlist => (
