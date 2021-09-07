@@ -47,6 +47,7 @@ import Spinner from './Spinner';
     return loading ? <Spinner/> : (
     <div css={style}>
         <div className="player__top">
+            {track && track.name}
         <img class="picture vinyl-1" id="picture" src="http://assets.stickpng.com/images/5856b3da4f6ae202fedf2794.png"/>
         </div>
 

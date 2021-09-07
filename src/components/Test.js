@@ -61,7 +61,8 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
 
             <div className="player_bottom__player">
             <SpotifyWebPlayer
-  token="BQD6rdlhr-f7o0lf7Rna2LwCNeEXdPnc7eHdsYyc8tIax0MpBa83t9RLaOEOZ6uFTgLwEcq9cHNI0pvlK1nhzfV1rD7jIVyh_Bmdhf_4X4787tf3TI7NiDp8tehYnjGblLN-o4ckfMz-m4lqiaAu4xuh0C_h2feSYEWZ4aeOOnK7_cysyqGaM03_pN0"
+  token="BQBtEJc0KSzzE1ZtF_qWWWihP9_SsTeK94YiJqdsJrIan5k38toP_uUdfMJVv_L_7dQpAuw8lU1G_5PD-AJQazMbYULWbhT0WOGb3oYhehPodVna58sV2sHqlTvYXhEo7Rw2IzEPLTB9smda2hr5kYC9Ret-rFGS568Tjb_Fq1mFk2qanhp3kRzfwpI
+  "
   uris={[
     `spotify:track:${id}`,
     `spotify:track:584UC3Qpm8SbYd7aRWKREu`,

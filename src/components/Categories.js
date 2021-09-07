@@ -27,6 +27,16 @@ useEffect(() => {
     setLoading(false)
 }
 }, [token])
+  
+const handleClick = value => async() => {
+  await axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists`,  {
+    headers: {
+        "Authorization": token
+    }
+})
+.then(response => setPlaylists(response.data.playlists.items))
+setLoading(false)
+}
 
 const colors = [
   '#D70060',
@@ -40,15 +50,6 @@ const colors = [
   '#115793',
 ];
 
-const handleClick = value => async() => {
-  await axios.get(`https://api.spotify.com/v1/browse/categories/${value}/playlists`, {
-    headers: {
-        "Authorization": token
-    }
-})
-.then(response => setPlaylists(response.data.playlists.items))
-setLoading(false)
-}
 return loading ? <Spinner /> : ( 
     
     <div>
@@ -69,7 +70,7 @@ return loading ? <Spinner /> : (
 
           </AccordionButton>
           
-         { playlists?.map(playlist  => (
+         { playlists?.map(playlist => (
         <AccordionPanel>
         <Link to={`/playlist/${playlist.id}`}>
                 {playlist.name}
