@@ -103,6 +103,7 @@ width: 100vw;
 
 
     `
+
     return loading ? <Spinner/> : (
     <div css={style}>
         <div className="player__top">

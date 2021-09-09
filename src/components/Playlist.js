@@ -6,6 +6,8 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import './Tracks.scss'
 import Drawer from './Drawer'
 import Spinner from './Spinner';
+import LazyLoad from 'react-lazyload';
+import "animate.css"
 
     const Playlist = () => {
 
@@ -47,14 +49,16 @@ import Spinner from './Spinner';
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
     return loading ? <Spinner/> : (
-    <div>
-        <div className="albumTop">
-<img src={playlist && playlist.images[0].url} alt="album cover"/>
+    <div className="animate__animated animate__fadeIn">
+        <div className="albumTop animate__animated animate__fadeIn">
+        <LazyLoad throttle={0} height={325}>
+<img src={playlist && playlist.images[0].url} alt={playlist && playlist.name}/>
+</LazyLoad>
     </div>
 
         { tracks?.map(track => (
         // eslint-disable-next-line
-    <table className="track">
+    <table className="track animate__animated animate__fadeIn">
         <tbody>
                 <tr>
                     <td><Link to={`/player/${track.track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>

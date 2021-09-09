@@ -26,7 +26,6 @@ import Drawer from './Drawer';
     }
     }, [token])
 
-    category && console.log(playlists)
     const style = css `
     .PlaylistSlider__container {
         max-width: 325px;
