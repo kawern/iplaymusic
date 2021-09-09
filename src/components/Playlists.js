@@ -81,8 +81,8 @@ ul {
 & img {
 max-width: 155px;
 border-radius: 8px;
--webkit-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15); 
-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
+-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15); 
+box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
 }
 }
     `
