@@ -49,6 +49,9 @@ import TopBar from './TopBar';
         background-size: cover;
 width: 100vw;
     }
+    .playlist_topBar {
+    margin: 0 30px;
+    }
     .playlist_header {
         text-align: center;
         font-weight: bold;
@@ -96,7 +99,9 @@ box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     return loading ? <Spinner/> : (
      <div css={style} className="animate__animated animate__fadeIn">
     <div className="playlist_top animate__animated animate__fadeIn">
+        <div className="playlist_topBar">
         <TopBar/>
+            </div>
         <h2 className="playlist">Playlists</h2>
         <div className="PlaylistSlider__container">
 <div className="PlaylistSlider_slides">
