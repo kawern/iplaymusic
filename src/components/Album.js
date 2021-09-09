@@ -101,7 +101,7 @@ max-width: 325px;
     { tracks?.map(track => (
         
                 <tr>
-                    <td><Link to={`/test/${track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
+                    <td><Link to={`/player/${track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
                     <td>
                         <p>{track.name}</p>
                         <p>{track.artists[0].name}</p>

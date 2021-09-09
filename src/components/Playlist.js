@@ -57,7 +57,7 @@ import Spinner from './Spinner';
     <table className="track">
         <tbody>
                 <tr>
-                    <td><Link to={`/test/${track.track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
+                    <td><Link to={`/player/${track.track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
                     <td>
                         <p>{track.track.name}</p>
                         <p>{track.track.artists[0].name}</p>
