@@ -4,14 +4,22 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { useParams } from '@reach/router'
+import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPauseCircleSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
+import Spinner from './Spinner';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+
+import soundWave from './images/sound-wave.png'
 import SpotifyWebPlayer from 'react-spotify-web-playback';
 
-    const Test = () => {
+    const Player = () => {
 
         const { token } = useContext(TokenContext)    
         const [track, setTrack] = useState();
-        const { id } = useParams()
+        const [loading, setLoading] = useState(true);
 
+        const { id } = useParams()
+    
         useEffect(() => {
             if(token) {
             axios.get(`https://api.spotify.com/v1/tracks/${id}`, {
@@ -20,49 +28,114 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
                 }
             })
         .then(response => setTrack(response.data))
+        setLoading(false)
     }
     }, [token])
 
-    console.log(track)
-
     const style = css`
-    .player_top {
+    .player__top {
+        display: flex;
+        justify-content: center;
+    margin: 3em 0;
+    padding: 5em 0;
+    background: url(${soundWave});
+width: 100vw;
+    &     svg {
+  width: 325px;
+  height: 325px;
+}
+
+#label {
+  fill: white;
+}
+
+@keyFrames spin {
+  100%{transform: rotate(360deg);}
+}
+
+#record {
+  transform-origin: center center;
+  animation: spin 4s linear infinite;
+  animation-play-state: running;
+}
+
+.line {
+  stroke: grey;
+}
+    }
+    .player__bottom {
         text-align: center;
+        margin-top: 50px;
     }
-    .player_bottom {
-        &__player ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            & li {
-                font-size: 1.5em;
-                margin: 0 5px;
-            }
-            & li:nth-child(3) {
-                font-size: 3em;
-            }
-        }
-    }
-    .PlayerRSWP {
+    .rhap_container {
         width: 100vw;
-        height: 100px;
         position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    box-shadow: none;
     }
+    .rhap_progress-bar {
+        background: #FF1168;
+        height: 2px;
+        margin: 0 25px;
+    }
+    .rhap_progress-indicator {
+        background: #FF1168;
+    }
+    .rhap_main-controls {
+        height: 4em;
+        margin-top: 2em;
+    }
+    .rhap_controls-section {
+        height: 6em;
+        margin-top: 2px;
+    }
+    .rhap_main-controls-button {
+        font-size: 20px;
+    }
+    .rhap_play-pause-button {
+        font-size: 70px;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 27px;
+    }
+
+
     `
-    return (
+    return loading ? <Spinner/> : (
     <div css={style}>
-        <div className="player_top">
-        <img src={track && track.album.images[0].url} alt="test"/>
-        <h3>{track && track.album.name}</h3>
+        <div className="player__top">
+        <svg viewBox="0 0 400 400">
+  <g id="record">
+  <circle r="200" cx="200" cy="200" />
+  <circle class="line" r="180" cx="200" cy="200" />
+  <circle class="line" r="160" cx="200" cy="200" />
+  <circle class="line" r="140" cx="200" cy="200" />
+  <circle id="label" cx="200" cy="200" r="65" />
+  <text y="180" x="160">{track && track.name}</text>  
+  <text y="230" x="160">{track && track.artists[0].name}</text>    
+  <circle id="dot" cx="200" cy="200" r="6" />
+  </g>
+  
+</svg>
         </div>
 
-        <div className="player_bottom">
+        <div className="player__bottom">
+        <h3>{track && track.name}</h3>
+        <p>{track && track.artists[0].name}</p>
 
-            <div className="player_bottom__player">
-            <SpotifyWebPlayer
+            <div className="player__bottom_player">
+
+
+            <svg width="0" height="0">
+  <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+    <stop stopColor="#EE0979" offset="0%" />
+    <stop stopColor="orange" offset="100%" />
+  </linearGradient>
+</svg>
+
+<SpotifyWebPlayer
   token="" //{token && token.replace("Bearer ", "")}
   uris={[
     `spotify:track:${id}`
@@ -74,10 +147,11 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
     color: '#000',
     loaderColor: '#EE0979',
     sliderColor: '#1cb954',
-    trackArtistColor: '#000',
-    trackNameColor: '#000',
+    trackArtistColor: '#000000',
+    trackNameColor: '#000000',
   }}
 />
+
             </div>
         </div>
     </div>
@@ -85,4 +159,4 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
 }
     
  
-export default Test;
+export default Player;
