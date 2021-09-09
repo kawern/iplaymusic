@@ -1,4 +1,4 @@
-import './spinner.scss'
+import './components/spinner.scss'
 
 const Spinner = () => {
     return ( <div className="loader">Loading...</div> );
