@@ -10,9 +10,6 @@ import Spinner from './Spinner'
 import "animate.css"
 
     const Albums = () => {
-
-            
-
         const { token } = useContext(TokenContext)    
         const [albums, setAlbums] = useState();
         const [newReleases, setNewReleases] = useState();
@@ -43,6 +40,11 @@ import "animate.css"
 }, [token])
 
     const style = css `
+    margin-bottom: 5em;
+
+    .track td:last-child {
+        width: 20%;
+    }
     .newReleases {
         max-width: 325px;
         & table td {
@@ -85,13 +87,21 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 }
 }
 .album_small_header {
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
     margin-bottom: 1em;
     &:nth-of-type(2) {
         margin-top: 1em;
     }
+    & .link {
+        color: #FF1168;
+        font-weight: normal;
+    }
 }
     `
+
+newReleases && console.log(newReleases)
 
 return loading ? <Spinner /> : ( 
 <div css={style} >
@@ -101,7 +111,7 @@ return loading ? <Spinner /> : (
 <div className="PlaylistSlider_slides">
 <ul>
     { albums?.map(album =>  (
-        <Link to={`/albums/`}>
+        <Link to={`/album/${album.track.id}`}>
             <li className="animate__animated animate__fadeIn">
             <LazyLoad throttle={100} height={155}>
                 <img src={album.track.album.images[0].url} alt={album.track.album.name} />
@@ -112,19 +122,29 @@ return loading ? <Spinner /> : (
     ))}</ul>
 </div>
 </div>
-<p className="album_small_header">New Releases</p>
+<div className="album_small_header"><p>New Releases</p><p className="link">View All</p></div>
 <div className="newReleases">
 <table className="track">
         <tbody>
         
         {newReleases?.map(release => loading ? <Spinner /> : (
-                <tr className="animate__animated animate__fadeIn">
-                    <td><LazyLoad throttle={200} height={64}><img src={release.images[2].url} alt={release.name}/></LazyLoad></td>
-                    <td>
+                <tr className="animate__animated animate__fadeIn" >
+                                
+            <td>
+                <LazyLoad throttle={200} height={64}>
+            <Link to={`/album/${release.id}`}>
+                <img src={release.images[2].url} alt={release.name}/>
+                </Link>
+                </LazyLoad>
+                
+                </td>
+                    <td><Link to={`/album/${release.id}`}>
                         <p style={{fontWeight:"bold"}}>{release.name}</p>
                         <p>{release.artists[0].name}</p>
+                        </Link>
                         </td>
                         <td style={{fontSize:"12px"}}>{release.total_tracks} tracks</td>
+                        
                 </tr>
                 ))}
                 </tbody>

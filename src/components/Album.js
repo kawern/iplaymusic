@@ -42,6 +42,12 @@ import Drawer from './Drawer';
 [token])
     
     const style = css `
+    .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
     .track {
   border-collapse: collapse;
   width: 100%;
@@ -50,6 +56,7 @@ import Drawer from './Drawer';
 
 .track td {
   padding: 8px;
+  padding-left: 0;
 }
 .track td:last-child {
   width: 5%;
@@ -69,30 +76,41 @@ import Drawer from './Drawer';
  img {
 max-width: 325px;
 }
+.albumTop {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.albumMiddle {
+    width: 325px;
+    margin: 0 auto;
+    & p {
+        font-weight: bold;
+    }
+}
     `
-
-    tracks && console.log(album)
     return (
     <div css={style} >
         <div className="albumTop">
 <img src={album && album.images[0].url} alt={album && album.name}/>
-    <h2>{album && album.artists[0].name} - {album && album.release_date.substring(0, 4)} - {album && album.total_tracks} songs</h2>
+    <h3>{album && album.artists[0].name}</h3>
+    <h3>{album && album.name}</h3>
     </div>
-
+<div className="albumMiddle">
+<p>All songs</p></div>
+<table className="track"><tbody>
     { tracks?.map(track => (
-    <table className="track">
-        <tbody>
+        
                 <tr>
-                    <td><Link to={`/player/${track.id}`}><AiFillPlayCircle size={36}/></Link></td>
+                    <td><Link to={`/test/${track.id}`}><AiFillPlayCircle size={36} style={{ fill: "url(#gradient)" }}/></Link></td>
                     <td>
                         <p>{track.name}</p>
                         <p>{track.artists[0].name}</p>
                         </td>
                     <td>2:35</td>
                 </tr>
-                </tbody>
-</table>
+               
     ))}
+     </tbody></table>
         <Drawer/>
     </div>
     );

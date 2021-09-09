@@ -3,17 +3,15 @@ import { css } from '@emotion/react'
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
-import { Link, useParams } from '@reach/router'
-import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
+import { useParams } from '@reach/router'
 import SpotifyWebPlayer from 'react-spotify-web-playback';
 
     const Test = () => {
 
         const { token } = useContext(TokenContext)    
         const [track, setTrack] = useState();
-
         const { id } = useParams()
-    
+
         useEffect(() => {
             if(token) {
             axios.get(`https://api.spotify.com/v1/tracks/${id}`, {
@@ -25,9 +23,12 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
     }
     }, [token])
 
-    track && console.log(track)
+    console.log(track)
 
     const style = css`
+    .player_top {
+        text-align: center;
+    }
     .player_bottom {
         &__player ul {
             display: flex;
@@ -44,40 +45,37 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
     }
     .PlayerRSWP {
         width: 100vw;
+        height: 100px;
         position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     }
     `
-
     return (
     <div css={style}>
-        <div className="player__top">
+        <div className="player_top">
         <img src={track && track.album.images[0].url} alt="test"/>
+        <h3>{track && track.album.name}</h3>
         </div>
 
         <div className="player_bottom">
 
             <div className="player_bottom__player">
             <SpotifyWebPlayer
-  token="BQBtEJc0KSzzE1ZtF_qWWWihP9_SsTeK94YiJqdsJrIan5k38toP_uUdfMJVv_L_7dQpAuw8lU1G_5PD-AJQazMbYULWbhT0WOGb3oYhehPodVna58sV2sHqlTvYXhEo7Rw2IzEPLTB9smda2hr5kYC9Ret-rFGS568Tjb_Fq1mFk2qanhp3kRzfwpI
-  "
+  token="" //{token && token.replace("Bearer ", "")}
   uris={[
-    `spotify:track:${id}`,
-    `spotify:track:584UC3Qpm8SbYd7aRWKREu`,
-    `spotify:track:584UC3Qpm8SbYd7aRWKREu`,
-    `spotify:track:584UC3Qpm8SbYd7aRWKREu`,
-    `spotify:track:584UC3Qpm8SbYd7aRWKREu`,
-    `spotify:track:584UC3Qpm8SbYd7aRWKREu`
+    `spotify:track:${id}`
 ]}
   autoPlay={true}
   styles={{
-    activeColor: '#FF1168',
-    bgColor: '#333',
-    color: '#fff',
-    loaderColor: '#fff',
-    sliderColor: '#FF1168',
+    activeColor: '#000',
+    bgColor: '#fff',
+    color: '#000',
+    loaderColor: '#EE0979',
+    sliderColor: '#1cb954',
+    trackArtistColor: '#000',
+    trackNameColor: '#000',
   }}
 />
             </div>

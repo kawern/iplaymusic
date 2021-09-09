@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 export const TokenContext = createContext();
@@ -27,7 +28,6 @@ body: "grant_type=client_credentials"
 .then(response => response.json())
 .then(result => setToken(`${result.token_type} ${result.access_token}`))
     }, []);
-    
     return ( 
         <TokenContext.Provider value={{ token }}>
             {props.children}

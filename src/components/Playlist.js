@@ -41,8 +41,6 @@ import Spinner from './Spinner';
 }, [token])
 
 
-    playlist && console.log(playlist)
-
     function correctDuration(ms) {
         let minutes = Math.floor(ms / 60000);
         let seconds = ((ms % 60000) / 1000).toFixed(0);

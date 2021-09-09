@@ -35,13 +35,16 @@ h2 {
   margin: 0 30px;
   padding: 20px 0;
 }
+h3 {
+  font-size: 20px;
+}
 li {
   list-style: none;
 }
 .wrapper {
 display: flex;
   justify-content: center;
-  margin-bottom: 3.5em;
+  margin-bottom: 5em;
   margin: 0 30px;
 }
 button {
@@ -53,6 +56,10 @@ button {
 .dark {
   background-color: #341931;
   color: white;
+
+  & p {
+    color: white;
+  }
     
   main {
     background-color: #1a202c;

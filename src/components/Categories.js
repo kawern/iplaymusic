@@ -71,7 +71,7 @@ return loading ? <Spinner /> : (
           </AccordionButton>
           
          { playlists?.map(playlist => (
-        <AccordionPanel>
+        <AccordionPanel className="slide-down">
         <Link to={`/playlist/${playlist.id}`}>
                 {playlist.name}
                 </Link>

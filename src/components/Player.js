@@ -4,8 +4,13 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { useParams } from '@reach/router'
-import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
+import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPauseCircleSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
 import Spinner from './Spinner';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+
+import soundWave from './images/sound-wave.png'
+import recordPlayer from './images/player.png'
 
     const Player = () => {
 
@@ -28,33 +33,122 @@ import Spinner from './Spinner';
     }, [token])
 
     const style = css`
-    .player_bottom {
-        &__player ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            & li {
-                font-size: 1.5em;
-                margin: 0 5px;
-            }
-            & li:nth-child(3) {
-                font-size: 3em;
-            }
-        }
-    }
-    `
+    .player__top {
+        display: flex;
+        justify-content: center;
+    margin-top: 3em;
+    background: url(${soundWave});
+overflow-x: visible;
+overflow: visible;
+width: 100vw;
+    &     svg {
+  width: 325px;
+  height: 325px;
+}
 
+#label {
+  fill: white;
+}
+
+@keyFrames spin {
+  100%{transform: rotate(360deg);}
+}
+
+#record {
+  transform-origin: center center;
+  animation: spin 4s linear infinite;
+}
+
+.line {
+  stroke: grey;
+}
+    }
+    .player__bottom {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .rhap_container {
+        width: 100vw;
+        position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: none;
+    }
+    .rhap_progress-bar {
+        background: #FF1168;
+        height: 2px;
+        margin: 0 25px;
+    }
+    .rhap_progress-indicator {
+        background: #FF1168;
+    }
+    .rhap_main-controls {
+        height: 4em;
+        margin-top: 2em;
+    }
+    .rhap_controls-section {
+        height: 6em;
+        margin-top: 2px;
+    }
+    .rhap_main-controls-button {
+        font-size: 20px;
+    }
+    .rhap_play-pause-button {
+        font-size: 70px;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 27px;
+    }
+
+
+    `
     return loading ? <Spinner/> : (
     <div css={style}>
         <div className="player__top">
-            {track && track.name}
-        <img class="picture vinyl-1" id="picture" src="http://assets.stickpng.com/images/5856b3da4f6ae202fedf2794.png"/>
+        <svg viewBox="0 0 400 400">
+  <g id="record">
+  <circle r="200" cx="200" cy="200" />
+  <circle class="line" r="180" cx="200" cy="200" />
+  <circle class="line" r="160" cx="200" cy="200" />
+  <circle class="line" r="140" cx="200" cy="200" />
+  <circle id="label" cx="200" cy="200" r="65" />
+  <text y="180" x="160">{track && track.name}</text>  
+  <text y="230" x="160">{track && track.artists[0].name}</text>    
+  <circle id="dot" cx="200" cy="200" r="6" />
+  </g>
+  
+</svg>
+        <img class="picture vinyl-1" id="picture" src=""/>
         </div>
 
-        <div className="player_bottom">
+        <div className="player__bottom">
+        <h3>{track && track.name}</h3>
+        <p>{track && track.artists[0].name}</p>
 
-            <div className="player_bottom__player">
+            <div className="player__bottom_player">
+
             <svg width="0" height="0">
+  <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+    <stop stopColor="#EE0979" offset="0%" />
+    <stop stopColor="orange" offset="100%" />
+  </linearGradient>
+</svg>
+
+            <AudioPlayer src={track && track.preview_url}
+            token={token}
+            showSkipControls={true}
+            customVolumeControls={[]}
+            customAdditionalControls={[]}
+            customIcons={{
+                previous: <IoPlaySkipBackSharp style={{ fill: "url(#gradient)" }}/>,
+                rewind: <IoPlayBackSharp/>,
+                play: <IoPlayCircleSharp style={{ fill: "url(#gradient)" }}/>,
+                pause: <IoPauseCircleSharp style={{ fill: "url(#gradient)" }}/>,
+                forward: <IoPlayForwardSharp/>,
+                next: <IoPlaySkipForwardSharp style={{ fill: "url(#gradient)" }}/>
+              }} />
+            {/* <svg width="0" height="0">
   <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
     <stop stopColor="#EE0979" offset="0%" />
     <stop stopColor="orange" offset="100%" />
@@ -67,7 +161,7 @@ import Spinner from './Spinner';
                 <li><IoPlayForwardSharp/></li>
                 <li><IoPlaySkipForwardSharp style={{ fill: "url(#gradient)" }}/></li>
                 <li></li>
-            </ul>
+            </ul> */}
             </div>
         </div>
     </div>
