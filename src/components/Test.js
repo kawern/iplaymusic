@@ -4,11 +4,8 @@ import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { TokenContext } from '../contexts/TokenContext'
 import { useParams } from '@reach/router'
-import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPauseCircleSharp, IoPlayCircleSharp, IoPlayForwardSharp, IoPlaySkipForwardSharp  } from 'react-icons/all'
 import Spinner from './Spinner';
-import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
-
 import soundWave from './images/sound-wave.png'
 import SpotifyWebPlayer from 'react-spotify-web-playback';
 

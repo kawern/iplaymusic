@@ -10,7 +10,6 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
 
 import soundWave from './images/sound-wave.png'
-import recordPlayer from './images/player.png'
 
     const Player = () => {
 
