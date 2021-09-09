@@ -1,0 +1,27 @@
+[data-reach-accordion-panel]:last-of-type {
+margin-bottom: 1em;
+}
+button[data-reach-accordion-button] {
+    min-width:325px;
+    height:54px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+    line-height:54px;
+    border: none;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+[data-reach-accordion-panel][data-state="open"] {
+    animation: fadeIn ease; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+    padding: 0 1em;
+}
+[data-reach-accordion-button][data-state="open"] {
+    .category_icon{
+        animation: swing; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 1.5s; /* don't forget to set a duration! */
+      }
+}

@@ -1,0 +1,27 @@
+#darkMode {
+    background-color: #341931;
+    color: white;
+    transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
+  
+  #darkMode:hover,
+  #darkMode:focus {
+    filter: none;
+    background-color: black;
+    cursor: pointer;
+  }
+  
+  #darkMode.clicked {
+    filter: none !important;
+    background-color: black;
+
+      }
+        li {
+        & img {
+        width: 325px;
+        border-radius: 8px;
+        z-index: 3;
+        -webkit-box-shadow: 10px 10px 11px 0px rgba(255,255,255,0.15)!important;
+box-shadow: 10px 10px 11px 0px rgba(255,255,255,0.15)!important;
+    }
+  }
