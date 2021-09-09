@@ -12,7 +12,7 @@ const Callback = (props) => {
     let state = new URLSearchParams(props.location.search).get("state");
 
     useEffect(() => {
-        axios.post("/.netlify/functions/token",
+        axios.post("./.netlify/functions/token",
         JSON.stringify({
             code,
             state

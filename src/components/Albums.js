@@ -8,6 +8,7 @@ import Drawer from './Drawer';
 import LazyLoad from 'react-lazyload';
 import Spinner from './Spinner'
 import "animate.css"
+import TopBar from './TopBar'
 
     const Albums = () => {
         const { token } = useContext(TokenContext)    
@@ -104,6 +105,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 
 return loading ? <Spinner /> : ( 
 <div css={style} className="animate__animated animate__fadeIn">
+<TopBar/>
         <h1>All Albums</h1>
         <p className="album_small_header">Featured Albums</p>
         <div className="PlaylistSlider__container">

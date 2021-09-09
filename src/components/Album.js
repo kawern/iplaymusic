@@ -6,6 +6,7 @@ import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import Drawer from './Drawer';
+import TopBar from './TopBar'
 
     const Album = () => {
 
@@ -90,6 +91,7 @@ max-width: 325px;
     `
     return (
     <div css={style} className="animate__animated animate__fadeIn">
+        <TopBar/>
         <div className="albumTop">
 <img src={album && album.images[0].url} alt={album && album.name}/>
     <h3>{album && album.artists[0].name}</h3>

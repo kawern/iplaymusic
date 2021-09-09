@@ -8,6 +8,7 @@ import { IoPlaySkipBackSharp, IoPlayBackSharp, IoPauseCircleSharp, IoPlayCircleS
 import Spinner from './Spinner';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
+import TopBar from './TopBar';
 
 import soundWave from './images/sound-wave.png'
 
@@ -106,6 +107,7 @@ width: 100vw;
 
     return loading ? <Spinner/> : (
     <div css={style}>
+        <TopBar/>
         <div className="player__top">
         <svg viewBox="0 0 400 400">
   <g id="record">

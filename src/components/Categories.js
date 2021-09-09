@@ -8,6 +8,7 @@ import "animate.css"
 import './Categories.scss'
 import Drawer from "./Drawer";
 import Spinner from './Spinner'
+import TopBar from "./TopBar";
 
 const Categories = () => {
 
@@ -53,6 +54,7 @@ const colors = [
 return loading ? <Spinner /> : ( 
     
     <div className="animate__animated animate__fadeIn">
+      <TopBar/>
       <h1>Categories</h1>
        <Accordion
        style={{marginBottom: "5em"}}
