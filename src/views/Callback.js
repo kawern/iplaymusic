@@ -19,7 +19,7 @@ const Callback = (props) => {
         }))
         .then(response => {
             setAuthToken(response.data)
-            navigate("/featured")
+            navigate("/featured/")
     })
     }, [setAuthToken, code, state]);
     return null;
