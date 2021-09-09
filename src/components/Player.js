@@ -36,10 +36,9 @@ import recordPlayer from './images/player.png'
     .player__top {
         display: flex;
         justify-content: center;
-    margin-top: 3em;
+    margin: 3em 0;
+    padding: 5em 0;
     background: url(${soundWave});
-overflow-x: visible;
-overflow: visible;
 width: 100vw;
     &     svg {
   width: 325px;
@@ -57,6 +56,7 @@ width: 100vw;
 #record {
   transform-origin: center center;
   animation: spin 4s linear infinite;
+  animation-play-state: running;
 }
 
 .line {
@@ -119,7 +119,6 @@ width: 100vw;
   </g>
   
 </svg>
-        <img class="picture vinyl-1" id="picture" src=""/>
         </div>
 
         <div className="player__bottom">
