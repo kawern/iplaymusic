@@ -29,6 +29,7 @@ import soundWave from './images/sound-wave.png'
         .then(response => setTrack(response.data))
         setLoading(false)
     }
+        // eslint-disable-next-line
     }, [token])
 
     const style = css`

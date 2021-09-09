@@ -27,6 +27,7 @@ import SpotifyWebPlayer from 'react-spotify-web-playback';
         .then(response => setTrack(response.data))
         setLoading(false)
     }
+        // eslint-disable-next-line
     }, [token])
 
     const style = css`

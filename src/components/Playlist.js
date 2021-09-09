@@ -28,6 +28,7 @@ import "animate.css"
         .then(response => setPlaylist(response.data))
         setLoading(false)
     }
+        // eslint-disable-next-line
     }, [token])
 
     useEffect(() => {
@@ -40,6 +41,7 @@ import "animate.css"
     .then(response => setTracks(response.data.items))
     setLoading(false)
 }
+    // eslint-disable-next-line
 }, [token])
 
 
