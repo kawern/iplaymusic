@@ -11,6 +11,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import Spinner from './Spinner';
 import LazyLoad from 'react-lazyload';
 import "animate.css"
+import TopBar from './TopBar';
 
     const Playlists = () => {
         const { token } = useContext(TokenContext)    
@@ -95,6 +96,7 @@ box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     return loading ? <Spinner/> : (
 
 <div css={style} className="animate__animated animate__fadeIn">
+<TopBar/>
     <div className="playlist_top animate__animated animate__fadeIn">
         <h2 className="playlist">Playlists</h2>
         <div className="PlaylistSlider__container">

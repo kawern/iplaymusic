@@ -6,6 +6,7 @@ import { TokenContext } from '../contexts/TokenContext'
 import { Link, useParams } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import Drawer from './Drawer';
+import TopBar from './TopBar';
 
     const Category = () => {
 
@@ -49,6 +50,7 @@ max-width: 155px;
 
     return (
     <div css={style} >
+        <TopBar/>
         <h1>Category</h1>
         <div className="PlaylistSlider__container">
 <div className="PlaylistSlider_Slides">

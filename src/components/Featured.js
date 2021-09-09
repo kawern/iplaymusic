@@ -7,6 +7,7 @@ import { Link } from '@reach/router'
 import Drawer from './Drawer'
 import LazyLoad from 'react-lazyload';
 import Spinner from './Spinner';
+import TopBar from './TopBar';
 
 
     const Featured = () => {
@@ -45,6 +46,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 
     return loading ? <Spinner/> : (
     <div css={style} className="animate__animated animate__fadeIn">
+        <TopBar/>
     <h1>Featured</h1>
     <ul>
     { playlists?.map(playlist => (
@@ -59,6 +61,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
     ))}</ul>
     <Drawer/>
     </div>
+    
     );
 }
  

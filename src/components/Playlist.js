@@ -8,6 +8,7 @@ import Drawer from './Drawer'
 import Spinner from './Spinner';
 import LazyLoad from 'react-lazyload';
 import "animate.css"
+import TopBar from "./TopBar";
 
     const Playlist = () => {
 
@@ -52,6 +53,7 @@ import "animate.css"
     }
     return loading ? <Spinner/> : (
     <div className="animate__animated animate__fadeIn">
+        <TopBar/>
         <div className="albumTop animate__animated animate__fadeIn">
         <LazyLoad throttle={0} height={325}>
 <img src={playlist && playlist.images[0].url} alt={playlist && playlist.name}/>
