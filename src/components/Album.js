@@ -89,7 +89,7 @@ max-width: 325px;
 }
     `
     return (
-    <div css={style} >
+    <div css={style} className="animate__animated animate__fadeIn">
         <div className="albumTop">
 <img src={album && album.images[0].url} alt={album && album.name}/>
     <h3>{album && album.artists[0].name}</h3>

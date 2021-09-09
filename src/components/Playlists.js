@@ -10,6 +10,7 @@ import { Link } from '@reach/router'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import Spinner from './Spinner';
 import LazyLoad from 'react-lazyload';
+import "animate.css"
 
     const Playlists = () => {
         const { token } = useContext(TokenContext)    
@@ -19,7 +20,7 @@ import LazyLoad from 'react-lazyload';
 
         useEffect(() => {
             if(token) {
-            axios.get(`https://api.spotify.com/v1/browse/categories/toplists/playlists`, {
+            axios.get(`https://api.spotify.com/v1/browse/categories/toplists/playlists?country=DK`, {
                 headers: {
                     "Authorization": token
                 }
@@ -90,10 +91,11 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
         let seconds = ((ms % 60000) / 1000).toFixed(0);
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
+
     return loading ? <Spinner/> : (
 
-<div css={style}>
-    <div className="playlist_top">
+<div css={style} className="animate__animated animate__fadeIn">
+    <div className="playlist_top animate__animated animate__fadeIn">
         <h2 className="playlist">Playlists</h2>
         <div className="PlaylistSlider__container">
 <div className="PlaylistSlider_slides">
@@ -111,7 +113,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 </div></div></div>
 
 <div className="playlist_header">{playlist && playlist.name}</div>
-<table className="track">
+<table className="track ">
         <tbody>
         {playlist?.tracks.items.map(list => (
                 <tr>

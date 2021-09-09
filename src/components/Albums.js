@@ -27,6 +27,7 @@ import "animate.css"
     }
     }, [token])
 
+
     useEffect(() => {
         if(token) {
         axios.get(`https://api.spotify.com/v1/browse/new-releases`, {
@@ -101,17 +102,15 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 }
     `
 
-newReleases && console.log(newReleases)
-
 return loading ? <Spinner /> : ( 
-<div css={style} >
+<div css={style} className="animate__animated animate__fadeIn">
         <h1>All Albums</h1>
         <p className="album_small_header">Featured Albums</p>
         <div className="PlaylistSlider__container">
 <div className="PlaylistSlider_slides">
 <ul>
     { albums?.map(album =>  (
-        <Link to={`/album/${album.track.id}`}>
+        <Link to={`/album/${album.track.album.id}`}>
             <li className="animate__animated animate__fadeIn">
             <LazyLoad throttle={100} height={155}>
                 <img src={album.track.album.images[0].url} alt={album.track.album.name} />
