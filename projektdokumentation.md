@@ -47,6 +47,8 @@ Alt i alt er jeg tilfreds med min indsats og gennemførelse af projektet.
 
 Jeg kunne dog godt have lavet nogen komponenter lidt anderledes (føler lidt at noget af det jeg display'er skulle have været i en komponent for sig selv, fx slider->slideritem og lign), men jeg ved ikke om det er forkert det jeg har gjort, nevertheless, så virker det.. Men det er noget jeg helt sikkert med mig videre til næste projekt (slider->slideritem fx.)
 
+Min CSS opsætning kunne også have været lidt mindre selvmords-agtig (suicide code), men det er også noget jeg vil forbedre til næste projekt.
+
 
 
 ***En beskrivelse af særlige punkter til bedømmelse

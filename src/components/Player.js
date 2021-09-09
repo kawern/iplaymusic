@@ -147,20 +147,6 @@ width: 100vw;
                 forward: <IoPlayForwardSharp/>,
                 next: <IoPlaySkipForwardSharp style={{ fill: "url(#gradient)" }}/>
               }} />
-            {/* <svg width="0" height="0">
-  <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-    <stop stopColor="#EE0979" offset="0%" />
-    <stop stopColor="orange" offset="100%" />
-  </linearGradient>
-</svg>
-            <ul>
-                <li><IoPlaySkipBackSharp style={{ fill: "url(#gradient)" }}/></li>
-                <li><IoPlayBackSharp/></li>
-                <li><IoPlayCircleSharp style={{ fill: "url(#gradient)" }}/></li>
-                <li><IoPlayForwardSharp/></li>
-                <li><IoPlaySkipForwardSharp style={{ fill: "url(#gradient)" }}/></li>
-                <li></li>
-            </ul> */}
             </div>
         </div>
     </div>
