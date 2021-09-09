@@ -95,7 +95,7 @@ box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
 
     return loading ? <Spinner/> : (
     <>
-        <TopBar/>
+        <TopBar style={{margin: "0 30px"}}/>
 
 <div css={style} className="animate__animated animate__fadeIn">
     <div className="playlist_top animate__animated animate__fadeIn">
