@@ -132,7 +132,7 @@ width: 100vw;
     <stop stopColor="orange" offset="100%" />
   </linearGradient>
 </svg>
-
+{ token && (
 <SpotifyWebPlayer
   token={token && token.replace("Bearer ", "")}
   uris={[
@@ -147,8 +147,12 @@ width: 100vw;
     sliderColor: '#1cb954',
     trackArtistColor: '#000000',
     trackNameColor: '#000000',
+    syncExternalDevice,
+    persistDeviceSelection,
+    autoPlay={false}
   }}
 />
+)}
 
             </div>
         </div>
