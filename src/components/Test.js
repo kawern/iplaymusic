@@ -139,6 +139,8 @@ width: 100vw;
     `spotify:track:${id}`
 ]}
   autoPlay={true}
+    syncExternalDevice
+    persistDeviceSelection
   styles={{
     activeColor: '#000',
     bgColor: '#fff',
@@ -146,10 +148,7 @@ width: 100vw;
     loaderColor: '#EE0979',
     sliderColor: '#1cb954',
     trackArtistColor: '#000000',
-    trackNameColor: '#000000',
-    syncExternalDevice,
-    persistDeviceSelection,
-    autoPlay={false}
+    trackNameColor: '#000000'
   }}
 />
 )}
