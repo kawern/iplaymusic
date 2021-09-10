@@ -44,6 +44,9 @@ width: 100vw;
   width: 325px;
   height: 325px;
 }
+.player_topBar {
+margin: 0 30px;
+}
 
 #label {
   fill: white;
@@ -106,8 +109,11 @@ width: 100vw;
 
     return loading ? <Spinner/> : (
     <div css={style}>
+        <div className="player_topBar">
+        <TopBar/>
+            </div>
         <div className="player__top">
-                    <TopBar/>
+         
         <svg viewBox="0 0 400 400">
   <g id="record">
   <circle r="200" cx="200" cy="200" />
