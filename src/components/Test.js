@@ -141,6 +141,7 @@ width: 100vw;
   autoPlay={true}
     syncExternalDevice
     persistDeviceSelection
+    name="iPlayMusic App"
   styles={{
     activeColor: '#000',
     bgColor: '#fff',
