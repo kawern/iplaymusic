@@ -134,7 +134,7 @@ width: 100vw;
 </svg>
 
 <SpotifyWebPlayer
-  token="" //{token && token.replace("Bearer ", "")}
+  token={token && token.replace("Bearer ", "")}
   uris={[
     `spotify:track:${id}`
 ]}
