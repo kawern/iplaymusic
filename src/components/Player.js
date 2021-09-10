@@ -38,7 +38,6 @@ import soundWave from './images/sound-wave.png'
         display: flex;
         justify-content: center;
     margin: 3em 0;
-    padding: 5em 0;
     background: url(${soundWave});
 width: 100vw;
     &     svg {
@@ -107,8 +106,8 @@ width: 100vw;
 
     return loading ? <Spinner/> : (
     <div css={style}>
-        <TopBar/>
         <div className="player__top">
+                    <TopBar/>
         <svg viewBox="0 0 400 400">
   <g id="record">
   <circle r="200" cx="200" cy="200" />
