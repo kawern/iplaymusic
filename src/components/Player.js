@@ -9,6 +9,7 @@ import Spinner from './Spinner';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
 import TopBar from './TopBar';
+import Drawer from './Drawer';
 
 import soundWave from './images/sound-wave.png'
 
@@ -36,6 +37,9 @@ import soundWave from './images/sound-wave.png'
     const style = css`
     .player_topBar {
 margin: 0 30px;
+}
+.player_Drawer {
+display: none;
 }
     .player__top {
         display: flex;
@@ -157,6 +161,9 @@ width: 100vw;
               }} />
             </div>
         </div>
+<div className="player_Drawer">
+<Drawer/>
+    </div>
     </div>
     );
 }
