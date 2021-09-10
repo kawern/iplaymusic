@@ -5,7 +5,7 @@ const Login = () => {
     const options = QueryString.stringify({
         response_type: "code",
         client_id: process.env.REACT_APP_CLIENT_ID,
-        scope: "streaming user-read-email user-read-private user-read-playback-state user-read-currently-playing user-library-read playlist-read-private playlist-read-collaborative user-modify-playback-state",
+        scope: "web-playback streaming user-read-email user-read-private user-read-playback-state user-read-currently-playing user-library-read playlist-read-private playlist-read-collaborative user-modify-playback-state",
         redirect_uri: "https://iplaymusic-kawern.netlify.app/callback", 
         state: "112345678iknbcxsertyuilkmnbvcdfghjk"
     })
