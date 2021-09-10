@@ -61,6 +61,7 @@ import TopBar from './TopBar'
     }
     .PlaylistSlider__container {
 max-width: 325px;
+margin-bottom: 2em;
     }
 .PlaylistSlider_slides {
   overflow: auto;
