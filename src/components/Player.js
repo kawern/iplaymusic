@@ -34,6 +34,9 @@ import soundWave from './images/sound-wave.png'
     }, [token])
 
     const style = css`
+    .player_topBar {
+margin: 0 30px;
+}
     .player__top {
         display: flex;
         justify-content: center;
@@ -43,9 +46,6 @@ width: 100vw;
     &     svg {
   width: 325px;
   height: 325px;
-}
-.player_topBar {
-margin: 0 30px;
 }
 
 #label {
