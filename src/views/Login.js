@@ -13,7 +13,7 @@ const Login = () => {
         <>
         <h1>Log in</h1>
         <a href={`https://accounts.spotify.com/authorize?${options}`}>
-        <button style={{borderRadius:"50px", borderColor: "black", textAlign: "center"}}>
+        <button style={{height:"60px", width:"325px", backgroundColor: "white", borderRadius:"50px", borderColor: "black", textAlign: "center"}}>
         Login with Spotify
         </button>
         </a>
