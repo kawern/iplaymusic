@@ -98,7 +98,6 @@ box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
         let seconds = ((ms % 60000) / 1000).toFixed(0);
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
-
     return loading ? <Spinner/> : (
      <div css={style} className="animate__animated animate__fadeIn">
     <div className="playlist_top animate__animated animate__fadeIn">
