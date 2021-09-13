@@ -43,6 +43,7 @@ import TopBar from './TopBar'
 [token])
     
     const style = css `
+    margin-bottom: 5em;
     .centered {
   position: absolute;
   top: 50%;

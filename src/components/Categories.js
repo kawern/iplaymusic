@@ -9,6 +9,9 @@ import './Categories.scss'
 import Drawer from "./Drawer";
 import Spinner from './Spinner'
 import TopBar from "./TopBar";
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
+
 
 const Categories = () => {
 
@@ -51,9 +54,12 @@ const colors = [
   '#115793',
 ];
 
+const style = css`
+margin-bottom: 6em;`
+
 return loading ? <Spinner /> : ( 
     
-    <div className="animate__animated animate__fadeIn">
+    <div css={style}className="animate__animated animate__fadeIn">
       <TopBar/>
       <h1>Categories</h1>
        <Accordion
