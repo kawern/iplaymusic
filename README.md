@@ -1,2 +1,2 @@
-# School project - iPlayMusic
-Making a music app in react for a school project (august/september 2021)
+# Skoleprojekt
+React baseret skoleprojekt, bygget ud fra et færdigt UI-design template (https://psdrepo.com/free-psd/awesome-xd-music-ui-kit-iplaymusic-freebie/)
