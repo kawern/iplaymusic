@@ -6,10 +6,15 @@
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
--webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
--moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.115);
 & p {
     font-size: 20px;
 }
+}
+.pageName {
+    font-size: 15px!important;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #341931;
+    letter-spacing: 2.5px;
+    
 }

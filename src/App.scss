@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
 * {
   margin: 0;
@@ -59,6 +59,13 @@ button {
 
   & p {
     color: white;
+  }
+  .rhap_container {
+    background-color: #341931!important;
+    color: white!important;
+  }
+  .rhap_current-time, .rhap_time, .rhap_main-controls-button{
+    color: white!important;
   }
     
   main {

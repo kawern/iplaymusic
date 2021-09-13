@@ -9,6 +9,8 @@ import Spinner from './Spinner';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
 import TopBar from './TopBar';
+import Drawer from './Drawer';
+import recordPlayer from './images/player.png'
 
 import soundWave from './images/sound-wave.png'
 
@@ -34,11 +36,16 @@ import soundWave from './images/sound-wave.png'
     }, [token])
 
     const style = css`
+    .player_topBar {
+margin: 0 30px;
+}
+.player_Drawer {
+display: none;
+}
     .player__top {
         display: flex;
         justify-content: center;
     margin: 3em 0;
-    padding: 5em 0;
     background: url(${soundWave});
 width: 100vw;
     &     svg {
@@ -46,22 +53,16 @@ width: 100vw;
   height: 325px;
 }
 
-#label {
-  fill: white;
-}
-
-@keyFrames spin {
-  100%{transform: rotate(360deg);}
-}
-
-#record {
+.record {
   transform-origin: center center;
   animation: spin 4s linear infinite;
   animation-play-state: running;
+& img {
+    width: 250px;
 }
-
-.line {
-  stroke: grey;
+}
+@keyFrames spin {
+  100%{transform: rotate(360deg);}
 }
     }
     .player__bottom {
@@ -70,8 +71,8 @@ width: 100vw;
     }
     .rhap_container {
         width: 100vw;
-        position: fixed;
-    bottom: 0;
+        position: relative;
+    bottom: -170px;
     left: 0;
     right: 0;
     box-shadow: none;
@@ -101,27 +102,24 @@ width: 100vw;
         height: 70px;
         margin-bottom: 27px;
     }
+    .rhap_main-controls-button {
+        color: black;
+    }
 
 
     `
 
     return loading ? <Spinner/> : (
     <div css={style}>
+        <div className="player_topBar">
         <TopBar/>
+            </div>
         <div className="player__top">
-        <svg viewBox="0 0 400 400">
-  <g id="record">
-  <circle r="200" cx="200" cy="200" />
-  <circle class="line" r="180" cx="200" cy="200" />
-  <circle class="line" r="160" cx="200" cy="200" />
-  <circle class="line" r="140" cx="200" cy="200" />
-  <circle id="label" cx="200" cy="200" r="65" />
-  <text y="180" x="160">{track && track.name}</text>  
-  <text y="230" x="160">{track && track.artists[0].name}</text>    
-  <circle id="dot" cx="200" cy="200" r="6" />
-  </g>
-  
-</svg>
+         
+  <div className="record">
+<img src={recordPlayer} alt="record player"/>
+  </div>
+
         </div>
 
         <div className="player__bottom">
@@ -152,6 +150,9 @@ width: 100vw;
               }} />
             </div>
         </div>
+<div className="player_Drawer">
+<Drawer/>
+    </div>
     </div>
     );
 }

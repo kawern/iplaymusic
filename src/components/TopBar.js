@@ -7,9 +7,14 @@ const TopBar = () => {
     function goBack() {
         window.history.back();
       }
+
+      var path = window.location.pathname;
+      var page = path.split('/')[1];
+      
     return (
     <div className="TopBar">
 <p><IoIosArrowBack onClick={goBack}/></p>
+<p className="pageName">{page}</p>
 <p><IoSearchSharp/></p>
     </div> );
 }

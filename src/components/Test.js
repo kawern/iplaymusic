@@ -132,13 +132,16 @@ width: 100vw;
     <stop stopColor="orange" offset="100%" />
   </linearGradient>
 </svg>
-
+{ token && (
 <SpotifyWebPlayer
-  token="" //{token && token.replace("Bearer ", "")}
+  token={token && token.replace("Bearer ", "")}
   uris={[
     `spotify:track:${id}`
 ]}
   autoPlay={true}
+    syncExternalDevice
+    persistDeviceSelection
+    name="iPlayMusic App"
   styles={{
     activeColor: '#000',
     bgColor: '#fff',
@@ -146,9 +149,10 @@ width: 100vw;
     loaderColor: '#EE0979',
     sliderColor: '#1cb954',
     trackArtistColor: '#000000',
-    trackNameColor: '#000000',
+    trackNameColor: '#000000'
   }}
 />
+)}
 
             </div>
         </div>

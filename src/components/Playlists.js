@@ -42,12 +42,15 @@ import TopBar from './TopBar';
       }
 
     const style = css `
-    margin-bottom: 3em;
+    margin-bottom: 5em;
     .playlist_top {
         background-image: url(${wave});
         background-repeat: no-repeat;
         background-size: cover;
 width: 100vw;
+    }
+    .playlist_topBar {
+    margin: 0 30px;
     }
     .playlist_header {
         text-align: center;
@@ -62,6 +65,9 @@ margin-bottom: 30px;
   overflow: auto;
   white-space: nowrap;
   padding-bottom: 10px;
+  &::-webkit-scrollbar {
+        display: none;
+    }
 & a {
   display: inline-block;
   color: white;
@@ -82,8 +88,8 @@ ul {
 & img {
 max-width: 155px;
 border-radius: 8px;
--webkit-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15); 
-box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
+-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15); 
+box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
 }
 }
     `
@@ -92,12 +98,12 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
         let seconds = ((ms % 60000) / 1000).toFixed(0);
         return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
     }
-
     return loading ? <Spinner/> : (
-
-<div css={style} className="animate__animated animate__fadeIn">
-<TopBar/>
+     <div css={style} className="animate__animated animate__fadeIn">
     <div className="playlist_top animate__animated animate__fadeIn">
+        <div className="playlist_topBar">
+        <TopBar/>
+            </div>
         <h2 className="playlist">Playlists</h2>
         <div className="PlaylistSlider__container">
 <div className="PlaylistSlider_slides">
@@ -131,6 +137,7 @@ box-shadow: 10px 10px 11px 0px rgba(0,0,0,0.15);
 </table>
 <Drawer/>
         </div>
+        
     );
 }
  
