@@ -13,6 +13,7 @@ import TopBar from './TopBar';
     const Featured = () => {
 
     const style = css `
+    margin-bottom: 6em;
     li {
         margin-bottom: 2em;
         
