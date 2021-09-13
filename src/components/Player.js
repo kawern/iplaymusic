@@ -100,6 +100,9 @@ width: 100vw;
         height: 70px;
         margin-bottom: 27px;
     }
+    .rhap_main-controls-button {
+        color: black;
+    }
 
 
     `
