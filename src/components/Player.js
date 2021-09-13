@@ -10,6 +10,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/src/styles.scss';
 import TopBar from './TopBar';
 import Drawer from './Drawer';
+import recordPlayer from './images/player.png'
 
 import soundWave from './images/sound-wave.png'
 
@@ -52,22 +53,14 @@ width: 100vw;
   height: 325px;
 }
 
-#label {
-  fill: white;
-}
-
-@keyFrames spin {
-  100%{transform: rotate(360deg);}
-}
-
 #record {
   transform-origin: center center;
   animation: spin 4s linear infinite;
   animation-play-state: running;
+  
 }
-
-.line {
-  stroke: grey;
+@keyFrames spin {
+  100%{transform: rotate(360deg);}
 }
     }
     .player__bottom {
@@ -118,19 +111,10 @@ width: 100vw;
             </div>
         <div className="player__top">
          
-        <svg viewBox="0 0 400 400">
-  <g id="record">
-  <circle r="200" cx="200" cy="200" />
-  <circle class="line" r="180" cx="200" cy="200" />
-  <circle class="line" r="160" cx="200" cy="200" />
-  <circle class="line" r="140" cx="200" cy="200" />
-  <circle id="label" cx="200" cy="200" r="65" />
-  <text y="180" x="160">{track && track.name}</text>  
-  <text y="230" x="160">{track && track.artists[0].name}</text>    
-  <circle id="dot" cx="200" cy="200" r="6" />
-  </g>
-  
-</svg>
+  <div className="record">
+<img src={recordPlayer} alt="record player"/>
+  </div>
+
         </div>
 
         <div className="player__bottom">
