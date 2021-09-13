@@ -42,7 +42,7 @@ import TopBar from './TopBar';
       }
 
     const style = css `
-    margin-bottom: 3em;
+    margin-bottom: 5em;
     .playlist_top {
         background-image: url(${wave});
         background-repeat: no-repeat;
