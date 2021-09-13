@@ -65,6 +65,9 @@ margin-bottom: 30px;
   overflow: auto;
   white-space: nowrap;
   padding-bottom: 10px;
+  &::-webkit-scrollbar {
+        display: none;
+    }
 & a {
   display: inline-block;
   color: white;

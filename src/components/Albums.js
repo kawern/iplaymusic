@@ -66,6 +66,9 @@ margin-bottom: 2em;
 .PlaylistSlider_slides {
   overflow: auto;
   white-space: nowrap;
+  &::-webkit-scrollbar {
+        display: none;
+    }
 & a {
   display: inline-block;
   color: white;
