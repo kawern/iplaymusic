@@ -9,7 +9,7 @@ const TopBar = () => {
       }
 
       var path = window.location.pathname;
-      var page = path.split("/").pop();
+      var page = path.split('/')[1];
       
     return (
     <div className="TopBar">
