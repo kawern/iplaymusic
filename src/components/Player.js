@@ -53,7 +53,7 @@ width: 100vw;
   height: 325px;
 }
 
-#record {
+.record {
   transform-origin: center center;
   animation: spin 4s linear infinite;
   animation-play-state: running;
