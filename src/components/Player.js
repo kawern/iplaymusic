@@ -57,7 +57,9 @@ width: 100vw;
   transform-origin: center center;
   animation: spin 4s linear infinite;
   animation-play-state: running;
-  
+& img {
+    width: 250px;
+}
 }
 @keyFrames spin {
   100%{transform: rotate(360deg);}
@@ -69,8 +71,8 @@ width: 100vw;
     }
     .rhap_container {
         width: 100vw;
-        position: fixed;
-    bottom: 0;
+        position: relative;
+    bottom: -170px;
     left: 0;
     right: 0;
     box-shadow: none;
