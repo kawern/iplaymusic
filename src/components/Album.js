@@ -90,6 +90,12 @@ max-width: 325px;
     }
 }
     `
+
+function correctDuration(ms) {
+    let minutes = Math.floor(ms / 60000);
+    let seconds = ((ms % 60000) / 1000).toFixed(0);
+    return minutes + ":" + ((seconds < 10) ? '0' : '') + seconds;
+}
     return (
     <div css={style} className="animate__animated animate__fadeIn">
         <TopBar/>
@@ -109,7 +115,7 @@ max-width: 325px;
                         <p>{track.name}</p>
                         <p>{track.artists[0].name}</p>
                         </td>
-                    <td>2:35</td>
+                    <td>{correctDuration(track.duration_ms)}</td>
                 </tr>
                
     ))}
